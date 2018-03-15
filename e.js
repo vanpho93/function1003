@@ -80,6 +80,3 @@ function veHinh6(n) {
         console.log(str);
     }
 }
-
-
-veHinh6(5);
