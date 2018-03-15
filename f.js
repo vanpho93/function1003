@@ -1,7 +1,8 @@
-function veHinh(n, checkFn) {
+function veHinh(n, checkFn, tinhSoCot) {
+    const soCot = tinhSoCot ? tinhSoCot(n) : n;
     for(let i = 1; i <= n; i++) {
         let str = '';
-        for(let j = 1; j <= n; j++) {
+        for(let j = 1; j <= soCot; j++) {
             const dk = checkFn(i, j, n);
             str += dk ? '*' : ' ';
         }
@@ -11,6 +12,14 @@ function veHinh(n, checkFn) {
 
 // veHinh(5, (i, j, n) => i >= j);
 // veHinh(5, (i, j, n) =>  i + j >= n + 1);
+veHinh(5, (i, j, n) => {
+    const soBuoc = n - 1;
+    const soTrungTam = soBuoc + 1;
+    const soBuocDoc = Math.abs(j - soTrungTam);
+    const soBuocNgang = Math.abs(i - soTrungTam);
+    const dk = soBuocDoc + soBuocNgang <= soBuoc;
+    return dk;
+}, x => x * 2 - 1); // ve hinh 6
 // veHinh(5, (i, j, n) =>  i + j <= n + 1);
 // veHinh(5, (i, j, n) => {
 //     const soBuoc = (n - 1) / 2;
@@ -29,4 +38,4 @@ function veHinh(n, checkFn) {
 //     const dkTrucDoc = i === soTrungTam;
 //     const dkTrucNgang = j === soTrungTam;
 //     return dkDuongVien || dkTrucDoc || dkTrucNgang;
-});
+// });

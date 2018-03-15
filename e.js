@@ -48,7 +48,8 @@ function veHinh4(n) {
 
 
 function veHinh5(n) {
-    for(let i = 1; i <= n; i++) {
+    const soCot = n;
+    for(let i = 1; i <= soCot; i++) {
         let str = '';
         for(let j = 1; j <= n; j++) {
             const soBuoc = (n - 1) / 2;
